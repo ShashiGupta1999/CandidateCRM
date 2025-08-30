@@ -64,6 +64,10 @@ Component-Based Layout Design
 
 Initially, I analyzed the overall layout and strategically divided it into distinct sections using a grid system. The main structure consists of a main container and a content container. Within the main container, I placed the sidebar and topbar for navigation and quick access. The content container is further organized into individual components, including Candidate Profile, Breadcrumb, Skills, Job Details, and Notes. This modular approach ensures a clean, maintainable, and scalable layout, with each functional area encapsulated in its own component.
 
+<img width="557" height="1197" alt="image" src="https://github.com/user-attachments/assets/126cfc4b-dbf6-40f3-809b-2f5e5c21b7cd" />
+ <img width="509" height="987" alt="image" src="https://github.com/user-attachments/assets/bf17fb38-9f88-4bd2-be25-17db87893b23" />
+
+
 CandidateCRM/
 │
 ├── index.html
