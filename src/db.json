@@ -1,0 +1,31 @@
+{
+  "candidate": [
+    {
+      "id": "1",
+      "name": "William ",
+      "title": "Senior Product Manager",
+      "country": "United States",
+      "city": "Dallas",
+      "email": "williamsample@gmail.com",
+      "phone": "+91 9002328236",
+      "contactPerson": "Phyllis Yang",
+      "contactTime": "Jul 14, 2023, 4:04 pm",
+      "organization": "World Bank Group",
+      "skills": "HTML, CSS, Javascript",
+      "availableFrom": "2025-08-30",
+      "currentSalary": "$6000",
+      "noticePeriod": "90 Days",
+      "address": "9400 Ashton Rd, Philadelphia...",
+      "resume": "Resume",
+      "totalExperience": "5 Years",
+      "summary": "IT Professional",
+      "employmentStatus": "Employed",
+      "dob": "1993-06-15",
+      "relevantExperience": "7 Years",
+      "salaryExpectation": "$9000",
+      "status": "Submitted to Client",
+      "salaryType": "Annual",
+      "languageSkills": "English (Elementary proficiency)"
+    }
+  ]
+}

@@ -60,4 +60,5 @@ function setActiveTab(tab: string) {
     color: #007bff;
   }
 }
+
 </style>

@@ -1,4 +1,13 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
+import { useCandidateStore } from '../src/stores/candidate'
+
+const store = useCandidateStore()
+
+onMounted(() => {
+  store.fetchCandidate()
+})
+
 import CandidateContent from "./components/Layout/CandidateContent.vue";
 import sidebar from "./components/Layout/sidebar.vue";
 import topbar from "./components/Layout/topbar.vue";
@@ -22,6 +31,9 @@ import topbar from "./components/Layout/topbar.vue";
   min-height: 100vh;
   box-sizing: border-box;
   display: grid;
+   padding: 0 !important;
+      margin: 0 !important;
+     overflow-x: hidden;
   grid-template-columns: 56px 1fr;
   grid-template-rows: 56px 1fr;
   grid-template-areas:
@@ -52,6 +64,8 @@ import topbar from "./components/Layout/topbar.vue";
       height: 48px;
       align-items: center;
       justify-content: center;
+       padding: 0 !important;
+      margin: 0 !important;
     }
      .topbar {
       grid-area: topbar;
@@ -65,7 +79,7 @@ import topbar from "./components/Layout/topbar.vue";
 }
 .sidebar {
     grid-area: sidebar;
-    
+    margin: 0;
     border-right: 1px solid #ddd;
   }
 
@@ -79,8 +93,7 @@ import topbar from "./components/Layout/topbar.vue";
   .content {
     grid-area: content;
     width: 100%;
-    overflow-y: auto;
-    background-color: #fafafa;
+    
   }
 
 

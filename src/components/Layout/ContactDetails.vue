@@ -4,11 +4,11 @@
     <div class="left">
       <div class="detail">
         <i class="bx bx-envelope"></i>
-        <a href="mailto:williamsample@gmail.com">williamsample@gmail.com</a>
+        <a :href="`mailto:${store.candidate.email}`">{{ store.candidate.email }}</a>
       </div>
       <div class="detail">
         <i class="bx bx-phone"></i>
-        <a href="tel:+919002328236">+91 9002328236</a>
+        <a :href="`tel:${store.candidate.phone}`">{{ store.candidate.phone }}</a>
       </div>
     </div>
 
@@ -16,19 +16,22 @@
     <div class="right">
       <div class="detail">
         <i class="bx bx-user"></i>
-        <span>Phyllis Yang</span>
+        <span>{{ store.candidate.contactPerson }}</span>
       </div>
       <div class="detail">
         <i class="bx bx-time"></i>
-        <span>Jul 14, 2023, 4:04 pm</span>
+        <span>{{ store.candidate.contactTime }}</span>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-// You can pass props later for dynamic data
+import { useCandidateStore } from '../../stores/candidate.ts'
+const store = useCandidateStore()
 </script>
+
+// ...existing style...
 
 <style scoped lang="scss">
 .contact-details {

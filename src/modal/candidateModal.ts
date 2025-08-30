@@ -1,0 +1,28 @@
+export interface Candidate {
+  id: number,  
+    name: string,
+    title: string,
+    country: string,
+    city: string,
+    email: string,
+    phone: string,
+    contactPerson: string,
+
+    contactTime: string,
+    organization: string,
+    skills: string,
+    availableFrom: string,
+    currentSalary: string,
+    noticePeriod: string,
+    address: string,
+    resume: string,
+    totalExperience: string,
+    summary: string,
+    employmentStatus: string,
+    dob: string,
+    relevantExperience: string,
+    salaryExpectation: string,
+    status: string,
+    salaryType: string,
+    languageSkills: string
+}

@@ -20,6 +20,7 @@ import JobDetails from "./jobDetails.vue";
 import Notes from "./notes.vue";
 import SkillDetails from "./skillDetails.vue";
 
+
 </script>
 
 <style scoped lang="scss">

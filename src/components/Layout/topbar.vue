@@ -13,11 +13,11 @@
 
     <!-- Right: Icons + Profile -->
     <div class="actions">
-      <button class="icon primary" ><i class="bx bx-plus"></i></button>
+      <button class="icon primary"><i class="bx bx-plus"></i></button>
       <button class="icon"><i class="bx bx-envelope"></i></button>
       <button class="icon"><i class="bx bx-gift"></i></button>
       <button class="icon"><i class="bx bx-bell"></i></button>
-      
+
       <div class="profile">
         <img src="/src/assets/images/user.png" alt="User" />
         <div class="info">
@@ -83,31 +83,30 @@
       height: 36px;
       font-size: 16px;
       cursor: pointer;
-       display: flex;
-  align-items: center;
-  justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-  i {
-    color: #174a7c;
-    font-size: 20px;
-    stroke: #174a7c;
-  }
-  
+      i {
+        color: #174a7c;
+        font-size: 20px;
+        stroke: #174a7c;
+      }
     }
-      .icon.primary {
-  background-color: #174a7c;
-  color: aliceblue;
+    .icon.primary {
+      background-color: #174a7c;
+      color: aliceblue;
 
-  i {
-    color: aliceblue;
-  }
-}
-
+      i {
+        color: aliceblue;
+      }
+    }
 
     .profile {
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      margin-right: 1.5rem;
 
       img {
         width: 32px;

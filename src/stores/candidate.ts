@@ -1,33 +1,45 @@
 import { defineStore } from 'pinia'
 import { fetchCandidateApi, updateCandidateApi } from '../api/candidateApi'
 
-export interface Candidate {
-  id: number
-  name: string
-  title: string
-  country: string
-  city: string
-  // ...other fields
-}
+import type { Candidate } from '../../src/modal/candidateModal'
 export const useCandidateStore = defineStore('candidate', {
-  state: () => ({
+state: () => ({
     candidate: {
       id: 1,
-      name: 'William Sample',
-      title: 'Senior Product Manager',
-      country: 'United States',
-      city: 'Dallas',
-      // ...other fields
+      name: '',
+      title: '',
+      country: '',
+      city: '',
+      email: '',
+      phone: '',
+      contactPerson: '',
+      contactTime: '',
+      organization: '',
+      skills: '',
+      availableFrom: '',
+      currentSalary: '',
+      noticePeriod: '',
+      address: '',
+      resume: '',
+      totalExperience: '',
+      summary: '',
+      employmentStatus: '',
+      dob: '',
+      relevantExperience: '',
+      salaryExpectation: '',
+      status: '',
+      salaryType: '',
+      languageSkills: ''
     } as Candidate
   }),
-  actions: {
-   async fetchCandidate() {
-      const apiResult = await fetchCandidateApi()
+actions: {
+    async fetchCandidate() {
+      const apiResult = await fetchCandidateApi(this.candidate.id)
       this.candidate = apiResult as Candidate
     },
     async updateCandidate(updated: Partial<Candidate>) {
-  const apiResult = await updateCandidateApi(updated)
-  this.candidate = { ...this.candidate, ...(apiResult || {}) }
-}
+      const apiResult = await updateCandidateApi(this.candidate.id, updated)
+      this.candidate = { ...this.candidate, ...(apiResult || {}) }
+    }
   }
 })
