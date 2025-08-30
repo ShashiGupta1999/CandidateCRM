@@ -121,7 +121,7 @@ CandidateCRM/
 
 ***************************************************************************************************************
 
-How the CandidateCRM Project Works
+## How the CandidateCRM Project Works
 -----------------------------------
 
 1. Building the UI
@@ -146,7 +146,7 @@ onMounted (Vue): To fetch data from the server when the app starts.
 
 ___________________________________________________________________________________
 
-Simple Steps of How It Works
+## Simple Steps of How It Works
 -----------------------------
 User opens the app and sees candidate details (fetched from JSON Server).
 User clicks "Edit" and updates information in the form.
@@ -156,102 +156,45 @@ If the page is refreshed, the app fetches the latest data from JSON Server and d
 
 ****************************************************************************************************************************
 
-Documentation outlining the approach, challenges faced, and solutions implemented.
+## Documentation outlining the approach, challenges faced, and solutions implemented.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-Approach(workspace)
--------------------
+# Approach
+------------
 Tech Used: Vue 3 (for UI), TypeScript (for safe coding), Pinia (for saving data), Vite (for fast running).
 How Data Works: Candidate info is saved and managed using Pinia. Data is fetched and updated using simple API functions.
 Code Structure: The app is split into small, reusable parts (components) like profile, sidebar, and forms.
 Styling: Each part has its own style for a neat look.
 
+# Challenges Faced & Solution
+----------------------------
 
-State Management: Used Pinia for global state, specifically for candidate data (src/stores/candidate.ts).
-API Integration: Created API functions for fetching and updating candidate data (src/api/candidateApi.ts).
-Type Safety: Defined a comprehensive Candidate interface for strong typing across the app.
-Component Structure: Modularized UI into reusable components (e.g., CandidateProfile, EditCandidateForm, sidebar).
-Styling: Used scoped SCSS for component styles.
+* Layout Design with Grid
+--------------------------
+Faced difficulty in dividing the layout.
+Decided to use CSS Grid for structuring the main sections.
+Benefit: Grid makes it easy to organize content into rows and columns, resulting in a clean and flexible layout.
 
-Challenges Faced
+* Edit Form Design
 -----------------
+To make the edit form user-friendly, I divided the fields into three sections: Basic Details, Contact Details, and Skill Details.
+This separation improves clarity and makes the form easier to fill out.
 
-TypeScript Errors:
-Implicit any type for parameters: Occurred in API and store actions.
-Spread types error: When spreading possibly undefined or non-object values.
-Type mismatch (unknown not assignable): API responses needed explicit typing.
-Incorrect import paths: TypeScript couldn't resolve some modules due to path or extension issues.
+* State Management for Edit Functionality
+---------------------------------------
+Used Pinia for state management to handle form data and updates.
+Challenge: Data updated in the UI was lost after refreshing the page.
+Reason: Pinia stores data temporarily in memory, so it resets on page reload.
 
-Reactivity Issues:
-Confusion between ref and reactive usage in forms, leading to .value property errors.
+* Using Fake API with JSON Server
+----------------------------------
+Implemented a fake API using JSON Server to save and fetch data from a JSON file.
+Solution: On every page load, data is fetched from the API, ensuring the UI always shows the latest saved values.
 
-Component Communication:
-Passing props and handling modal visibility for editing candidate details.
-Solutions Implemented
+* Responsiveness
+---------------
+Faced issues with sidebar and topbar overlapping, especially on mobile and iPhone views.
+Solution: Used media queries and set the viewport meta tag in the index file to improve responsiveness.
+Result: The layout now adapts better to different screen sizes
 
-Type Annotations:
-Added explicit type annotations to all function parameters and API responses
 
-Correct Imports:
-Ensured all imports use correct relative paths and omit .ts extensions
 
-Safe Object Spread:
-Used fallback objects when spreading API results to avoid runtime 
-
-Consistent Typing:
-Centralized the Candidate interface and imported it wherever needed.
-
-Form Reactivity:
-Used ref for form state and accessed properties via .value in script, but directly in template.
-
-Component Props:
-Used defineProps and composables for modal control and prop passing.
-
----------------------------------------------------------------------------------------------------------------------------------------------
-
-Sidebar Responsive Layout: Approach, Challenges & Solutions
-
-Approach
------------
-
-Used a fixed sidebar (position: fixed; left: 0; top: 0;) with a width of 56px and full viewport height (height: 100vh).
-Sidebar content (icons) is structured as a vertical list (flex-direction: column) for desktop.
-For mobile (max-width: 600px), sidebar switches to a horizontal row (flex-direction: row), spans full width (width: 100vw), and reduces height (height: 48px).
-All icons are centered using align-items: center and justify-content: center in both layouts.
-Challenges Faced
-Vertical Centering of Icons (Desktop):
-
-Initial use of align-items: flex-start caused icons to stick to the top.
-Needed icons to be vertically centered within the sidebar.
-Horizontal Centering (Mobile):
-
-Icons were not perfectly centered and sometimes stuck to the edges.
-Required additional padding and centering logic for mobile view.
-Unwanted Margin/Padding:
-
-Default browser styles on ul and li added extra space.
-Had to explicitly set margin: 0; padding: 0; and use !important for overrides.
-Sidebar Overlap and Scroll Issues:
-
-Sidebar sometimes caused horizontal scroll due to fixed width and positioning.
-Ensured overflow-x: hidden on main container and body.
-
-Solutions Implemented
--------------------------
-
-Vertical Centering (Desktop):
-Changed align-items: flex-start to align-items: center and added justify-content: center to .sidebar and ul.
-Horizontal Centering (Mobile):
-Used flex-direction: row and justify-content: center for .sidebar and ul in mobile media query.
-Added horizontal padding to prevent icons from sticking to the edges.
-Removed Extra Margin/Padding:
-Set margin: 0; padding: 0; for .sidebar, nav, ul, and li.
-Used !important for mobile overrides to ensure styles apply.
-Full Height Sidebar:
-Used height: 100vh and position: fixed for sidebar to always fill the screen height.
-No Horizontal Scroll:
-Added overflow-x: hidden to main container and body.
-Result
-Sidebar is fully responsive: vertical on desktop, horizontal on mobile.
-Icons are perfectly centered in both layouts.
-No unwanted scroll bars or cut-off content.
-Clean, consistent appearance across screen sizes.
