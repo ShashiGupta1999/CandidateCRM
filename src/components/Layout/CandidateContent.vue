@@ -4,7 +4,7 @@
     <CandidateProfile/>
    <ContactDetails/>
    <SkillDetails/>
-  
+   
    <AssignedJob/>
    <JobDetails/>
     <Notes/>

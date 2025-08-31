@@ -9,16 +9,16 @@
       <div v-if="errorMsg" class="error-msg">{{ errorMsg }}</div>
       <div class="form-section">
         <h3>Basic Info</h3>
-        <label>Name: <input v-model="form.name" required /></label>
-        <label>Title: <input v-model="form.title" required /></label>
-        <label>Country: <input v-model="form.country" required /></label>
-        <label>City: <input v-model="form.city" required /></label>
+        <label>Name: <input name="name" v-model="form.name" required /></label>
+        <label>Title: <input name="title" v-model="form.title" required /></label>
+        <label>Country: <input name="country" v-model="form.country" required /></label>
+        <label>City: <input name="city" v-model="form.city" required /></label>
       </div>
       <div class="form-section">
         <h3>Contact Details</h3>
-        <label>Email: <input v-model="form.email" type="email" required /></label>
+        <label>Email: <input name="email" v-model="form.email" type="email" required /></label>
         <div v-if="emailError" class="field-error">{{ emailError }}</div>
-        <label>Phone: <input v-model="form.phone" required /></label>
+        <label>Phone: <input name="phone" v-model="form.phone" required /></label>
         <div v-if="phoneError" class="field-error">{{ phoneError }}</div>
         <label>Contact Person: <input v-model="form.contactPerson" /></label>
         <label>Contact Time: <input v-model="form.contactTime" /></label>

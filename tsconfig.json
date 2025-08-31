@@ -1,7 +1,21 @@
-{
-  "files": [],
+
+{"compilerOptions": {
+    "composite": true,
+    "types": [
+      "jest"
+    ],
+    "lib": [
+      "ES2015",
+      "DOM",
+      "ESNext"
+    ]
+  },
+  
+  "files": [
+    "src/vite-env.d.ts"
+  ],
   "references": [
-    { "path": "./tsconfig.app.json" },
+   
     { "path": "./tsconfig.node.json" }
   ]
 }

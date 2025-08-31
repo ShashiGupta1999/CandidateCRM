@@ -196,5 +196,49 @@ Faced issues with sidebar and topbar overlapping, especially on mobile and iPhon
 Solution: Used media queries and set the viewport meta tag in the index file to improve responsiveness.
 Result: The layout now adapts better to different screen sizes
 
+__________________________________________________________________________________________________________
+
+## Approach(Test Enviornment)
+--------------------------
+Install Testing Tools
+
+Chose Jest for unit testing.
+Installed Jest, Babel-Jest, Vue-Jest, TS-Jest, and related dependencies.
+Configure Jest
+
+Created jest.config.cjs for compatibility with CommonJS.
+Set up transforms for .vue and .ts files.
+Mock APIs and Stores
+
+Used Jest’s mocking functions to simulate API responses.
+Created Pinia instances in tests to provide store context.
+Write Test Cases
+
+Wrote tests for component rendering, form validation, store actions, and API calls.
 
 
+## Challenges & Solutions
+
+* Dependency Conflicts
+Challenge: Incompatible versions of Jest, Babel-Jest, Vue-Jest, TS-Jest, and TypeScript.
+Solution: Installed specific compatible versions using --legacy-peer-deps and downgraded TypeScript to 4.x for TS-Jest compatibility.
+
+* Jest Configuration Issues
+Challenge: Errors with module.exports and missing test environments.
+Solution: Used .cjs extension for Jest config and installed jest-environment-jsdom separately.
+
+* TypeScript Integration
+Challenge: Type errors for async/Promise and .vue modules.
+Solution: Added "lib": ["ES2015", "DOM", "ESNext"] to tsconfig.json and a Vue shim file for type declarations.
+
+* Pinia Store Usage in Tests
+Challenge: “No active Pinia” error when using stores in tests.
+Solution: Created and provided Pinia instance in each test using createPinia() and global.plugins.
+
+* Mocking Global Objects
+Challenge: TypeScript error for global.
+Solution: Used globalThis instead of global for mocking fetch.
+
+* API and Store Testing
+Challenge: Testing async API calls and store updates.
+Solution: Mocked API functions and verified store state changes after actions.
