@@ -64,65 +64,44 @@ Component-Based Layout Design
 
 Initially, I analyzed the overall layout and strategically divided it into distinct sections using a grid system. The main structure consists of a main container and a content container. Within the main container, I placed the sidebar and topbar for navigation and quick access. The content container is further organized into individual components, including Candidate Profile, Breadcrumb, Skills, Job Details, and Notes. This modular approach ensures a clean, maintainable, and scalable layout, with each functional area encapsulated in its own component.
 
-<img width="557" height="1197" alt="image" src="https://github.com/user-attachments/assets/126cfc4b-dbf6-40f3-809b-2f5e5c21b7cd" />
- <img width="509" height="987" alt="image" src="https://github.com/user-attachments/assets/bf17fb38-9f88-4bd2-be25-17db87893b23" />
+
 
 
 CandidateCRM/
 │
-├── index.html
-├── package.json
-├── README.md
-├── tsconfig.app.json
-├── tsconfig.json
-├── tsconfig.node.json
-├── vite.config.ts
-│
-├── public/
+├── public/                  # Static assets
 │   └── vite.svg
 │
-├── src/
-│   ├── App.vue
-│   ├── db.json
-│   ├── main.ts
-│   ├── style.css
-│   ├── vite-env.d.ts
-│   │
-│   ├── api/
+├── src/                     # Source code
+│   ├── api/                 # API functions
 │   │   └── candidateApi.ts
-│   │
-│   ├── assets/
-│   │   ├── vue.svg
+│   ├── assets/              # Images, icons, etc.
 │   │   └── images/
-│   │       ├── logo.png
-│   │       ├── profile.png
-│   │       └── user.png
-│   │
-│   ├── components/
-│   │   ├── HelloWorld.vue
+│   ├── components/          # Vue components
 │   │   └── Layout/
-│   │       ├── AssignedJob.vue
-│   │       ├── breadcrumb.vue
-│   │       ├── CandidateContent.vue
-│   │       ├── CandidateProfile.vue
-│   │       ├── ContactDetails.vue
-│   │       ├── editCandidateForm.vue
-│   │       ├── jobDetails.vue
-│   │       ├── NoteCard.vue
-│   │       ├── notes.vue
-│   │       ├── sidebar.vue
-│   │       ├── skillDetails.vue
-│   │       └── topbar.vue
-│   │
-│   ├── composable/
-│   │   └── useEditModel.ts
-│   │
-│   ├── modal/
-│   │   └── candidateModal.ts
-│   │
-│   └── stores/
-│       └── candidate.ts
-
+│   │       └── editCandidateForm.vue
+│   ├── composable/          # Vue composables
+│   ├── modal/               # Modal definitions
+│   ├── stores/              # Pinia stores
+│   │   └── candidate.ts
+│   ├── style.css            # Global styles
+│   ├── App.vue              # Root component
+│   ├── main.ts              # App entry point
+│   ├── db.json              # Mock database
+│   └── vite-env.d.ts        # TypeScript shims for .vue files
+│
+├── tests/                   # Test files
+│   ├── EditCandidateForm.spec.ts
+│   ├── CandidateStore.spec.ts
+│   └── candidateApi.spec.ts
+│
+├── jest.config.cjs          # Jest configuration
+├── package.json             # Project metadata and dependencies
+├── tsconfig.json            # TypeScript configuration
+├── tsconfig.app.json        # App-specific TypeScript config
+├── tsconfig.node.json       # Node-specific TypeScript config
+├── vite.config.ts           # Vite configuration
+└── README.md                # Project documentation
 
 
 ## How the CandidateCRM Project Works
