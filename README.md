@@ -52,81 +52,60 @@ npm run dev
 ```
 This will start the frontend application.
 
----
+
 
 **Now open your browser and go to** `http://localhost:5173` **to see the project running.**
 
 If you face any errors, read the error message carefully and follow the instructions.
 
-***************************************************************************************
+
 
 Component-Based Layout Design
 
 Initially, I analyzed the overall layout and strategically divided it into distinct sections using a grid system. The main structure consists of a main container and a content container. Within the main container, I placed the sidebar and topbar for navigation and quick access. The content container is further organized into individual components, including Candidate Profile, Breadcrumb, Skills, Job Details, and Notes. This modular approach ensures a clean, maintainable, and scalable layout, with each functional area encapsulated in its own component.
 
-<img width="557" height="1197" alt="image" src="https://github.com/user-attachments/assets/126cfc4b-dbf6-40f3-809b-2f5e5c21b7cd" />
- <img width="509" height="987" alt="image" src="https://github.com/user-attachments/assets/bf17fb38-9f88-4bd2-be25-17db87893b23" />
+
 
 
 CandidateCRM/
 │
-├── index.html
-├── package.json
-├── README.md
-├── tsconfig.app.json
-├── tsconfig.json
-├── tsconfig.node.json
-├── vite.config.ts
-│
-├── public/
+├── public/                  # Static assets
 │   └── vite.svg
 │
-├── src/
-│   ├── App.vue
-│   ├── db.json
-│   ├── main.ts
-│   ├── style.css
-│   ├── vite-env.d.ts
-│   │
-│   ├── api/
+├── src/                     # Source code
+│   ├── api/                 # API functions
 │   │   └── candidateApi.ts
-│   │
-│   ├── assets/
-│   │   ├── vue.svg
+│   ├── assets/              # Images, icons, etc.
 │   │   └── images/
-│   │       ├── logo.png
-│   │       ├── profile.png
-│   │       └── user.png
-│   │
-│   ├── components/
-│   │   ├── HelloWorld.vue
+│   ├── components/          # Vue components
 │   │   └── Layout/
-│   │       ├── AssignedJob.vue
-│   │       ├── breadcrumb.vue
-│   │       ├── CandidateContent.vue
-│   │       ├── CandidateProfile.vue
-│   │       ├── ContactDetails.vue
-│   │       ├── editCandidateForm.vue
-│   │       ├── jobDetails.vue
-│   │       ├── NoteCard.vue
-│   │       ├── notes.vue
-│   │       ├── sidebar.vue
-│   │       ├── skillDetails.vue
-│   │       └── topbar.vue
-│   │
-│   ├── composable/
-│   │   └── useEditModel.ts
-│   │
-│   ├── modal/
-│   │   └── candidateModal.ts
-│   │
-│   └── stores/
-│       └── candidate.ts
+│   │       └── editCandidateForm.vue
+│   ├── composable/          # Vue composables
+│   ├── modal/               # Modal definitions
+│   ├── stores/              # Pinia stores
+│   │   └── candidate.ts
+│   ├── style.css            # Global styles
+│   ├── App.vue              # Root component
+│   ├── main.ts              # App entry point
+│   ├── db.json              # Mock database
+│   └── vite-env.d.ts        # TypeScript shims for .vue files
+│
+├── tests/                   # Test files
+│   ├── EditCandidateForm.spec.ts
+│   ├── CandidateStore.spec.ts
+│   └── candidateApi.spec.ts
+│
+├── jest.config.cjs          # Jest configuration
+├── package.json             # Project metadata and dependencies
+├── tsconfig.json            # TypeScript configuration
+├── tsconfig.app.json        # App-specific TypeScript config
+├── tsconfig.node.json       # Node-specific TypeScript config
+├── vite.config.ts           # Vite configuration
+└── README.md                # Project documentation
 
-***************************************************************************************************************
 
 ## How the CandidateCRM Project Works
------------------------------------
+
 
 1. Building the UI
 I created the user interface (UI) using HTML, Vanilla CSS, SCSS, and Vue 3.
@@ -148,54 +127,47 @@ JSON Server: For storing and updating candidate data.
 Pinia: For managing and sharing data between components.
 onMounted (Vue): To fetch data from the server when the app starts.
 
-___________________________________________________________________________________
 
 ## Simple Steps of How It Works
------------------------------
+
 User opens the app and sees candidate details (fetched from JSON Server).
 User clicks "Edit" and updates information in the form.
 On submit, the app sends the new data to JSON Server and updates the state in Pinia.
 The UI automatically shows the updated data.
 If the page is refreshed, the app fetches the latest data from JSON Server and displays it.
 
-****************************************************************************************************************************
+
 
 ## Documentation outlining the approach, challenges faced, and solutions implemented.
----------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Approach
-------------
+
+## Approach
+
 Tech Used: Vue 3 (for UI), TypeScript (for safe coding), Pinia (for saving data), Vite (for fast running).
 How Data Works: Candidate info is saved and managed using Pinia. Data is fetched and updated using simple API functions.
 Code Structure: The app is split into small, reusable parts (components) like profile, sidebar, and forms.
 Styling: Each part has its own style for a neat look.
 
-# Challenges Faced & Solution
-----------------------------
-
+## Challenges Faced & Solution
 * Layout Design with Grid
---------------------------
-Faced difficulty in dividing the layout.
+
+* Faced difficulty in dividing the layout.
 Decided to use CSS Grid for structuring the main sections.
 Benefit: Grid makes it easy to organize content into rows and columns, resulting in a clean and flexible layout.
 
 * Edit Form Design
------------------
 To make the edit form user-friendly, I divided the fields into three sections: Basic Details, Contact Details, and Skill Details.
 This separation improves clarity and makes the form easier to fill out.
 
 * State Management for Edit Functionality
----------------------------------------
 Used Pinia for state management to handle form data and updates.
 Challenge: Data updated in the UI was lost after refreshing the page.
 Reason: Pinia stores data temporarily in memory, so it resets on page reload.
 
 * Using Fake API with JSON Server
-----------------------------------
 Implemented a fake API using JSON Server to save and fetch data from a JSON file.
 Solution: On every page load, data is fetched from the API, ensuring the UI always shows the latest saved values.
 
 * Responsiveness
----------------
 Faced issues with sidebar and topbar overlapping, especially on mobile and iPhone views.
 Solution: Used media queries and set the viewport meta tag in the index file to improve responsiveness.
 Result: The layout now adapts better to different screen sizes
@@ -203,7 +175,7 @@ Result: The layout now adapts better to different screen sizes
 __________________________________________________________________________________________________________
 
 ## Approach(Test Enviornment)
---------------------------
+
 Install Testing Tools
 
 Chose Jest for unit testing.
