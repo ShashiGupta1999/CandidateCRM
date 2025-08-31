@@ -12,7 +12,12 @@
       <div class="detail">
         <strong>Full Address:</strong> {{ store.candidate.address }}
       </div>
-      <div class="detail"><strong>Resume:</strong> {{ store.candidate.resume }}</div>
+      <div class="detail">
+        <strong>Resume:</strong>
+        <input type="file" accept="application/pdf" @change="onResumeUpload" />
+        <span v-if="resumeName">{{ resumeName }}</span>
+        <a v-if="resumeUrl" :href="resumeUrl" target="_blank">View PDF</a>
+      </div>
       <div class="detail"><strong>Total Experience:</strong> {{ store.candidate.totalExperience }}</div>
     </div>
 
@@ -35,8 +40,25 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useCandidateStore } from '../../stores/candidate.ts'
 const store = useCandidateStore()
+
+const resumeName = ref('')
+const resumeUrl = ref('')
+
+function onResumeUpload(event: Event) {
+  const file = (event.target as HTMLInputElement).files?.[0]
+  if (file && file.type === 'application/pdf') {
+    resumeName.value = file.name
+    resumeUrl.value = URL.createObjectURL(file)
+    // You can also upload the file to your server here if needed
+  } else {
+    resumeName.value = ''
+    resumeUrl.value = ''
+    alert('Please select a PDF file.')
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -48,11 +70,10 @@ const store = useCandidateStore()
   flex-wrap: wrap;
   background-color: #fff;
   margin-bottom: 1rem;
-  height: 300px;
+ overflow: auto;
   .column {
-   flex: 1;
-   height: 100%;
-   
+   flex: 1 1 300px;
+
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
