@@ -19,7 +19,7 @@ display: flex;
 background-color: #f0f2f5;
 padding: 0.5rem 1rem;
 border-bottom: 1px solid #dcdcdc;
-
+overflow: auto;
 }
 
 .tab-item {
@@ -33,8 +33,7 @@ border: none;
 cursor: pointer;
 white-space: nowrap;
 transition: color 0.3s, border-bottom 0.3s;
-flex-shrink: 1;
-  min-width: 0;
+
 &.active {
 color: #007bff;
 border-bottom: 2px solid #007bff;
